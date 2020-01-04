@@ -3,6 +3,7 @@ from sklearn.linear_model import Lasso
 from sklearn.preprocessing import MinMaxScaler
 
 from regression_model.processing import preprocessors as pp
+from regression_model.processing import features
 from regression_model.config import config
 
 
@@ -23,7 +24,7 @@ price_pipe = Pipeline(
         ('categorical_encoder',
             pp.CategoricalEncoder(variables=config.CATEGORICAL_VARS)),
         ('log_transformer',
-            pp.LogTransformer(variables=config.NUMERICALS_LOG_VARS)),
+            features.LogTransformer(variables=config.NUMERICALS_LOG_VARS)),
         ('drop_features',
             pp.DropUnnecessaryFeatures(variables_to_drop=config.DROP_FEATURES)),
         ('scaler', MinMaxScaler()),
