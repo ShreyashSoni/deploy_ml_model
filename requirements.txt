@@ -2,3 +2,6 @@ jupyter
 matplotlib
 pandas
 scikit-learn
+
+# testing
+pytest
